@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StatGen - Modern Static Site Generator</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary: #10b981;
+            --dark: #1f2937;
+            --light: #f9fafb;
+            --gray: #6b7280;
+            --border: #e5e7eb;
+            --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 80px 0 60px;
+            color: white;
+        }
+
+        .logo {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            margin-bottom: 40px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: var(--light);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .features {
+            background: white;
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin: 40px 0;
+            box-shadow: var(--shadow);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 12px;
+            background: var(--light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .feature h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .feature p {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        .usage {
+            background: white;
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin: 40px 0;
+            box-shadow: var(--shadow);
+        }
+
+        .usage h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+
+        .code-examples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .code-block {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 30px;
+            border-radius: 12px;
+            font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+            position: relative;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .code-label {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: var(--primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        pre {
+            margin: 0;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        footer {
+            text-align: center;
+            padding: 60px 0;
+            color: white;
+            opacity: 0.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .social-links a:hover {
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2rem;
+            }
+
+            .tagline {
+                font-size: 1.2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .features, .usage {
+                padding: 40px 20px;
+                margin: 20px 0;
+            }
+
+            .code-block {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">⚡ StatGen</div>
+            <div class="tagline">Convert Markdown to Beautiful HTML Websites in Seconds</div>
+            <div class="cta-buttons">
+                <a href="https://github.com/noodlelover1/statgen" class="btn btn-primary">Get Started</a>
+                <a href="./demo.html" class="btn btn-secondary">See Demo</a>
+            </div>
+        </header>
+
+        <section class="features">
+            <div class="features-grid">
+                <div class="feature">
+                    <span class="feature-icon">📝</span>
+                    <h3>Full Markdown Support</h3>
+                    <p>GitHub-style HTML rendering with tables, code blocks, and extended syntax</p>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">🎨</span>
+                    <h3>Beautiful Themes</h3>
+                    <p>Light, dark, and auto themes with customizable accent colors</p>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">⚡</span>
+                    <h3>Emoji Favicons</h3>
+                    <p>Use any emoji as your website favicon with a simple flag</p>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">📁</span>
+                    <h3>Batch Processing</h3>
+                    <p>Process entire directories of Markdown files at once</p>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">⚙️</span>
+                    <h3>Configuration Files</h3>
+                    <p>Use JSON or YAML files to store your settings</p>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">📱</span>
+                    <h3>Responsive Design</h3>
+                    <p>Mobile-friendly layouts with modern CSS</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="usage" id="usage">
+            <h2>Simple to Use</h2>
+            <div class="code-examples">
+                <div class="code-block">
+                    <div class="code-label">Basic</div>
+                    <pre># Generate from inline content
+statgen -i "# Hello World"
+
+# Generate from file
+statgen -f README.md</pre>
+                </div>
+                <div class="code-block">
+                    <div class="code-label">Advanced</div>
+                    <pre># With custom theme and emoji favicon
+statgen -f content.md \
+  --theme dark \
+  --favicon "🚀" \
+  --accent "#ff6b35"</pre>
+                </div>
+                <div class="code-block">
+                    <div class="code-label">Batch</div>
+                    <pre># Process entire directory
+statgen -d docs -o website
+
+# All .md files become .html files</pre>
+                </div>
+                <div class="code-block">
+                    <div class="code-label">Config File</div>
+                    <pre># Create statgen.json
+{
+  "theme": "auto",
+  "font": "Georgia",
+  "accent": "#3498db",
+  "favicon": "🌟"
+}</pre>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <p>&copy; 2024 StatGen. Built with ❤️ by noodlelover1</p>
+                <div class="social-links">
+                    <a href="https://github.com/noodlelover1/releases">📦</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
