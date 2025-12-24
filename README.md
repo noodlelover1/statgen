@@ -1,4 +1,4 @@
-# StatGen
+# StatGen ⚡️
 
 A modern static site generator that converts Markdown to beautiful HTML websites.
 
