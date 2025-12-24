@@ -14,9 +14,10 @@ A modern static site generator that converts Markdown to beautiful HTML websites
 
 ## Installation
 
-### Using Cargo
 ```bash
-cargo install statgen
+git clone https://github.com/noodlelover1/statgen/
+cd statgen
+cargo install --path .
 ```
 
 ## Usage
@@ -45,6 +46,9 @@ statgen -f content.md --theme dark --font "Times New Roman"
 # Custom accent color
 statgen -f content.md --accent "#ff6b35"
 statgen -f content.md --theme dark --accent purple
+
+# Custom accent color for light and dark themes in auto theme
+statgen -f content.md --theme auto --accent-light purple --accent-dark yellow
 ```
 
 ### Options
@@ -59,6 +63,7 @@ statgen -f content.md --theme dark --accent purple
 - `--accent <COLOR>`: Accent color for website (accepts color names or hex codes) - Default: #3498db
 
 #### Font Examples
+Fonts must be installed on your system to display. The default uses your system's font stack.
 
 ```bash
 # Serif fonts (decorative, easier to read):
@@ -66,15 +71,14 @@ statgen -f content.md --font Georgia
 statgen -f content.md --font "Times New Roman"
 
 # Sans-serif fonts (clean, modern):
-statgen -f content.md --font Arial
-statgen -f content.md --font Helvetica
+statgen -f content.md --font "Noto Sans"
+statgen -f content.md --font "DejaVu Sans"
 
 # Monospace fonts (code-like):
-statgen -f content.md --font "Courier New"
-statgen -f content.md --font monospace
+statgen -f content.md --font "Liberation Mono"
 ```
 
-**Note**: The requested font must be installed on your system to display properly. If the font is not available, browsers will fall back to system default fonts.
+**Note**: If a font doesn't display, it's not installed on your system. Browser falls back to system fonts (usually Cantarell/DejaVu on Arch). Try Noto Sans, DejaVu Sans, or Liberation Sans.
 
 ### Configuration File
 Create `statgen.json` or `statgen.yaml`:
@@ -105,7 +109,3 @@ cargo test     # Run tests
 cargo fmt      # Format code
 cargo clippy   # Lint
 ```
-
-## License
-
-MIT
