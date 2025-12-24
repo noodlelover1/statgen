@@ -14,9 +14,9 @@ A modern static site generator that converts Markdown to beautiful HTML websites
 
 ## Installation
 
+Download startgen.zip from [the latest release](https://github.com/noodlelover1/statgen/releases) and extract it, then run :
 ```bash
-git clone https://github.com/noodlelover1/statgen/
-cd statgen
+cd /path/to/exctracted/statgen
 cargo install --path .
 ```
 
