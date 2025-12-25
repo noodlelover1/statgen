@@ -6,7 +6,9 @@
 
 <h1>StatGen</h1>
 <p>Super fast CLI website generator</p>
-<img src="https://img.shields.io/badge/License-CC_BY--NC--ND-blue?style=for-the-badge"/>
+<a href="./LICENSE"><img src="https://img.shields.io/badge/License-CC_BY--NC--ND-blue?style=for-the-badge"/></a>
+<a href="https://noodlelover1.github.io/statgen/"><img alt="Website" src="https://img.shields.io/website?url=https%3A%2F%2Fnoodlelover1.github.io%2Fstatgen&style=for-the-badge"></a>
+
 
 </div>
 
