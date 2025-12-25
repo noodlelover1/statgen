@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Showcase</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%E2%9A%A1</text></svg>">
+    <style>
+        :root {
+            --bg-color: #f4f4f4; --text-color: #333; --header-color: #2c3e50; --code-bg: #e7e7e7; --code-color: #333; --link-color: #3498db; --blockquote-bg: #f9f9f9; --border-color: #e0e0e0;;
+            --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            height: 100%;
+        }
+
+        .container {
+            width: 100%;
+            padding: 3rem 2rem;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .content {
+            text-align: left;
+            width: 100%;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--header-color);
+            font-weight: 600;
+            line-height: 1.3;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 4rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid var(--link-color);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 3rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: var(--link-color);
+        }
+
+        h4 {
+            font-size: 1.25rem;
+        }
+
+        h5 {
+            font-size: 1.1rem;
+        }
+
+        h6 {
+            font-size: 1rem;
+            color: var(--code-color);
+        }
+
+        p {
+            margin-bottom: 2rem;
+            text-align: left;
+            line-height: 1.7;
+        }
+
+        ul, ol {
+            margin-bottom: 2rem;
+            padding-left: 2rem;
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--link-color);
+            padding: 1.5rem 2rem;
+            margin: 3rem 0;
+            background-color: var(--blockquote-bg);
+            font-style: italic;
+            border-radius: 0 8px 8px 0;
+        }
+
+        code {
+            background-color: var(--code-bg);
+            color: var(--code-color);
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background-color: var(--code-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 3rem 0;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 3rem 0;
+            background-color: var(--blockquote-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 1rem 1.25rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--code-bg);
+            color: var(--header-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--bg-color);
+        }
+
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+            transition: color 0.2s ease;
+            will-change: color;
+        }
+
+        a:hover {
+            color: var(--text-color);
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+            margin: 3rem 0;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 3rem 0;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .footnote {
+            font-size: 0.85rem;
+            color: var(--code-color);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem 1rem;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+                margin-bottom: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+
+            p {
+                margin-bottom: 1.5rem;
+                line-height: 1.6;
+            }
+
+            pre {
+                padding: 1.25rem;
+                margin: 2rem 0;
+            }
+
+            blockquote {
+                padding: 1rem 1.25rem;
+                margin: 2rem 0;
+            }
+        }
+    </style>
+    <script>
+        function applyTheme(theme) {
+            const root = document.documentElement;
+            if (theme === 'dark') {
+                root.style.setProperty('--bg-color', '#1a1a1a');
+                root.style.setProperty('--text-color', '#e0e0e0');
+                root.style.setProperty('--header-color', '#ffffff');
+                root.style.setProperty('--code-bg', '#2d2d2d');
+                root.style.setProperty('--code-color', '#cccccc');
+                root.style.setProperty('--link-color', 'yellow');
+                root.style.setProperty('--blockquote-bg', '#2a2a2a');
+                root.style.setProperty('--border-color', '#404040');
+            } else {
+                root.style.setProperty('--bg-color', '#f4f4f4');
+                root.style.setProperty('--text-color', '#333');
+                root.style.setProperty('--header-color', '#2c3e50');
+                root.style.setProperty('--code-bg', '#e7e7e7');
+                root.style.setProperty('--code-color', '#333');
+                root.style.setProperty('--link-color', 'purple');
+                root.style.setProperty('--blockquote-bg', '#f9f9f9');
+                root.style.setProperty('--border-color', '#e0e0e0');
+            }
+        }
+
+        // Detect system theme
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        applyTheme(prefersDark ? 'dark' : 'light');
+
+        // Listen for changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            applyTheme(e.matches ? 'dark' : 'light');
+        });
+        </script>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1>Showcase</h1>
+            <a href="./index.html">Back</a>
+<h1>H1 Heading</h1>
+<h2>H2 Heading</h2>
+<h3>H3 Heading</h3>
+<h4>H4 Heading</h4>
+<h5>H5 Heading</h5>
+<h6>H6 Heading</h6>
+<p><strong>Bold text</strong>
+<em>Italic text</em>
+<em><strong>Bold and italic</strong></em>
+<code>Inline code</code>
+<del>Strikethrough text</del></p>
+<hr />
+<p><a href="https://example.com">Link</a>
+<a href="https://example.com" title="Title">Link with title</a>
+<a href="https://example.com">https://example.com</a></p>
+<p><img src="https://via.placeholder.com/300x200" alt="Image" />
+<img src="https://via.placeholder.com/300x200" alt="Image with alt" title="Alt text" /></p>
+<hr />
+<ul>
+<li>Unordered item 1</li>
+<li>Unordered item 2
+<ul>
+<li>Nested item 1</li>
+<li>Nested item 2
+<ul>
+<li>Deep nested</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Unordered item 3</li>
+</ul>
+<ol>
+<li>Ordered item 1</li>
+<li>Ordered item 2
+<ol>
+<li>Sub-item 1</li>
+<li>Sub-item 2</li>
+</ol>
+</li>
+<li>Ordered item 3</li>
+</ol>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+Completed task</li>
+<li><input disabled="" type="checkbox"/>
+Pending task</li>
+<li><input disabled="" type="checkbox"/>
+Another task</li>
+</ul>
+<hr />
+<blockquote>
+<p>Blockquote text</p>
+<p>Nested blockquote</p>
+<blockquote>
+<p>Deep nested blockquote</p>
+</blockquote>
+<p>Blockquote with <strong>formatting</strong></p>
+</blockquote>
+<hr />
+<table><thead><tr><th>Name</th><th>Age</th><th>City</th></tr></thead><tbody>
+<tr><td>John</td><td>25</td><td>New York</td></tr>
+<tr><td>Jane</td><td>30</td><td>London</td></tr>
+<tr><td>Bob</td><td>35</td><td>Tokyo</td></tr>
+</tbody></table>
+<table><thead><tr><th style="text-align: left">Left</th><th style="text-align: center">Center</th><th style="text-align: right">Right</th></tr></thead><tbody>
+<tr><td style="text-align: left">A</td><td style="text-align: center">B</td><td style="text-align: right">C</td></tr>
+<tr><td style="text-align: left">D</td><td style="text-align: center">E</td><td style="text-align: right">F</td></tr>
+</tbody></table>
+<hr />
+<pre><code class="language-javascript">function example() {
+    console.log("Hello World");
+    return true;
+}
+</code></pre>
+<pre><code class="language-python">def example():
+    print("Hello World")
+    return True
+</code></pre>
+<pre><code class="language-css">.example {
+    color: red;
+    font-size: 16px;
+}
+</code></pre>
+<hr />
+<div style=" padding: 15px;">
+    <h3>HTML Container</h3>
+    <p>Safe HTML content</p>
+    <button>Button</button>
+</div>
+<table>
+    <tr>
+        <th>Header 1</th>
+        <th>Header 2</th>
+    </tr>
+    <tr>
+        <td>Data 1</td>
+        <td>Data 2</td>
+    </tr>
+</table>
+<hr />
+<p>Footnote example<sup class="footnote-reference"><a href="#1">1</a></sup>.</p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>Footnote definition</p>
+</div>
+<hr />
+<p>Term 1
+: Definition 1</p>
+<p>Term 2<br />
+: Definition 2
+: Extended definition</p>
+<hr />
+<p>🎉 🚀 💻 📚 ✨
+∑ ∏ ∫ ∂ ∇ ∆
+$ € £ ¥</p>
+<hr />
+<h1>Mixed Content</h1>
+<h2>Header with <strong>bold</strong> and <em>italic</em></h2>
+<blockquote>
+<p><strong>Blockquote with <code>code</code> and <a href="https://example.com">link</a></strong></p>
+<ul>
+<li>List in blockquote</li>
+<li>Another item</li>
+</ul>
+</blockquote>
+<h3>Table with formatting</h3>
+<table><thead><tr><th>Feature</th><th>Status</th><th>Code</th></tr></thead><tbody>
+<tr><td><strong>Parsing</strong></td><td>✅ Done</td><td><code>parse()</code></td></tr>
+<tr><td><em>Rendering</em></td><td>🔄 In Progress</td><td><code>render()</code></td></tr>
+</tbody></table>
+<h3>HTML and Markdown mix</h3>
+<p>this <strong>bold</strong> word was in HTML.
+<hr />
+<h2>Complex Tables</h2>
+<table><thead><tr><th>Product</th><th>Q1 Sales</th><th>Q2 Sales</th><th>Q3 Sales</th><th>Q4 Sales</th><th>Total</th></tr></thead><tbody>
+<tr><td><strong>Item A</strong></td><td>$1,000</td><td>$1,200</td><td>$1,500</td><td>$1,800</td><td>$5,500</td></tr>
+<tr><td><em>Item B</em></td><td>$800</td><td>$900</td><td>$1,100</td><td>$1,300</td><td>$4,100</td></tr>
+<tr><td>Item C</td><td>$500</td><td>$600</td><td>$700</td><td>$800</td><td>$2,600</td></tr>
+</tbody></table>
+<table><thead><tr><th>Category</th><th>Items</th><th>Status</th><th>Priority</th></tr></thead><tbody>
+<tr><td>Hardware</td><td>15</td><td>✅ Active</td><td>High</td></tr>
+<tr><td>Software</td><td>23</td><td>🔄 Testing</td><td>Medium</td></tr>
+<tr><td>Services</td><td>8</td><td>⏳ Pending</td><td>Low</td></tr>
+</tbody></table>
+<hr />
+<h2>Code Variations</h2>
+<p><code>single_backtick</code>
+``double_backtick```</p>
+<pre><code class="language-text">No syntax highlighting
+</code></pre>
+<pre><code class="language-html">&lt;div class="example"&gt;
+    &lt;p&gt;HTML code block&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<pre><code class="language-bash">echo "Hello World"
+npm install
+git commit -m "Message"
+</code></pre>
+<hr />
+<h2>Nested Structures</h2>
+<h3>List with blockquotes</h3>
+<ol>
+<li>First item
+<blockquote>
+<p>Nested blockquote</p>
+<p>With <strong>formatting</strong></p>
+</blockquote>
+</li>
+<li>Second item
+<ul>
+<li>Sub-list
+<ul>
+<li>Deep sub-item
+<blockquote>
+<p>Deep blockquote</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3>Blockquote with lists</h3>
+<blockquote>
+<p>Main blockquote</p>
+<ul>
+<li>Nested list 1</li>
+<li>Nested list 2
+<ul>
+<li>Deep nested</li>
+</ul>
+</li>
+</ul>
+<p>Continued blockquote text</p>
+</blockquote>
+<h3>Table with lists</h3>
+<table><thead><tr><th>Column 1</th><th>Column 2</th></tr></thead><tbody>
+<tr><td>Item 1</td><td>- Sub 1<br>- Sub 2</td></tr>
+<tr><td>Item 2</td><td>1. Numbered<br>2. List</td></tr>
+</tbody></table>
+<hr />
+<h2>Advanced HTML</h2>
+<details>
+    <summary>Click to reveal</summary>
+    <p>Hidden content inside details element</p>
+    <ul>
+        <li>Hidden item 1</li>
+        <li>Hidden item 2</li>
+    </ul>
+</details>
+<div style="display: flex; gap: 10px;">
+    <div style="flex: 1; padding: 10px;">
+        <h4>Flex Box 1</h4>
+        <p>Content 1</p>
+    </div>
+    <div style="flex: 1; padding: 10px;">
+        <h4>Flex Box 2</h4>
+        <p>Content 2</p>
+    </div>
+</div>
+&lt;style>
+.custom-style {
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+&lt;/style>
+<div class="custom-style">
+    <h3>Custom Styled Content</h3>
+    <p>With inline CSS styling</p>
+</div>
+<hr />
+<h2>Special Characters</h2>
+<p>&lt;script&gt;alert(‘XSS’)&lt;/script&gt;</p>
+<p>Escaped asterisks: *not italic*</p>
+<p>Escaped backticks: `not code`</p>
+<p>Raw brackets: [not a link]</p>
+<hr />
+<h2>Edge Cases</h2>
+<h1></h1>
+<h2>Header with no content</h2>
+<blockquote>
+<p>Empty blockquote</p>
+</blockquote>
+<table><thead><tr><th></th><th></th></tr></thead><tbody>
+<tr><td></td><td></td></tr>
+</tbody></table>
+<ul>
+<li></li>
+<li>Empty list item</li>
+</ul>
+<pre><code>
+Empty code block
+
+</code></pre>
+<hr />
+<h2>Final Mix</h2>
+<h1>Complete Showcase</h1>
+<p>This document demonstrates <strong>all</strong> Statgen features including:</p>
+<ol>
+<li><strong>Headers</strong> (H1-H6)</li>
+<li><em>Text formatting</em> (bold, italic, strikethrough)</li>
+<li><code>Code elements</code> (inline and blocks)</li>
+<li><a href="https://example.com">Links</a> and images</li>
+<li>Lists (ordered, unordered, nested, tasks)</li>
+<li>
+<blockquote>
+<p>Blockquotes (including nested)</p>
+</blockquote>
+</li>
+<li>Tables (basic and advanced)</li>
+<li>HTML embedding (safe)</li>
+<li>Footnotes<sup class="footnote-reference"><a href="#final">2</a></sup></li>
+<li>Definition lists</li>
+<li>Unicode and emoji support</li>
+</ol>
+<div class="footnote-definition" id="final"><sup class="footnote-definition-label">2</sup>
+<p>Final footnote example</p>
+</div>
+<hr />
+        </div>
+    </div>
+</body>
+</html>
