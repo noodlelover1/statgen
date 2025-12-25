@@ -1,13 +1,19 @@
-# StatGen ⚡️
+<div align='center'>
 
-A modern static site generator that converts Markdown to beautiful HTML websites.
+<img src=zap.png alt="logo" width=100 height=100 />
+<br>
+
+
+<h1>StatGen</h1>
+<p>Super fast CLI website generator</p>
+</div>
 
 ## Features
 
-- **Full Markdown support** with GitHub-style HTML rendering
+- **Full Markdown support** - Tables, text format ...
 - **Emoji favicon support** - Use any emoji as your website favicon
 - **Batch processing** for entire directories
-- **Configuration files** (JSON/YAML)
+- **Basic HTML** : Got a piece of HTML in your Markdown ? No problem !
 - **Responsive design** with clean, airy layout
 - **Theme support** (light/dark/auto)
 - **Security** with XSS protection
@@ -60,7 +66,8 @@ statgen -f content.md --theme auto --accent-light purple --accent-dark yellow
 - `--font <FONT>`: Font family (use quotes for fonts with spaces) - Default: system fonts
 - `--font-size <SIZE>`: Font size (default: 16px)
 - `--theme <THEME>`: Theme (light/dark/auto, default: auto)
-- `--accent <COLOR>`: Accent color for website (accepts color names or hex codes) - Default: #3498db
+- `--accent <COLOR>`: Accent color for website (accepts color names or hex codes) - Default: #3498d
+- `--accent-light / --accent-dark <COLOR>`: Choose different accent color for two themes when in "auto" mode
 
 #### Font Examples
 Fonts must be installed on your system to display. The default uses your system's font stack.
@@ -79,18 +86,6 @@ statgen -f content.md --font "Liberation Mono"
 ```
 
 **Note**: If a font doesn't display, it's not installed on your system. Browser falls back to system fonts (usually Cantarell/DejaVu on Arch). Try Noto Sans, DejaVu Sans, or Liberation Sans.
-
-### Configuration File
-Create `statgen.json` or `statgen.yaml`:
-```json
-{
-  "font": "Georgia",
-  "theme": "dark",
-  "accent": "#ff6b35",
-  "output": "build",
-  "favicon": "🚀"
-}
-```
 
 ## Output
 
