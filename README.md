@@ -20,6 +20,7 @@
 - **Basic HTML** : Got a piece of HTML in your Markdown ? No problem !
 - **Responsive design** with clean, airy layout
 - **Theme support** (light/dark/auto)
+- **Robust code** StatGen is written in rust, a very robust coding language.
 - **Security** with XSS protection
 
 ## Installation
@@ -89,7 +90,7 @@ statgen -f content.md --font "DejaVu Sans"
 statgen -f content.md --font "Liberation Mono"
 ```
 
-**Note**: If a font doesn't display, it's not installed on your system. Browser falls back to system fonts (usually Cantarell/DejaVu on Arch). Try Noto Sans, DejaVu Sans, or Liberation Sans.
+**Note**: If a font doesn't display, it's not installed on your system. Browser falls back to system fonts (usually Cantarell/DejaVu). Try Noto Sans, DejaVu Sans, or Liberation Sans.
 
 ## Output
 
