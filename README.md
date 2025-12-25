@@ -6,6 +6,8 @@
 
 <h1>StatGen</h1>
 <p>Super fast CLI website generator</p>
+<img src="https://img.shields.io/badge/License-CC_BY--NC--ND-blue?style=for-the-badge"/>
+
 </div>
 
 ## Features
