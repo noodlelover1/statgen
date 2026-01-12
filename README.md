@@ -25,6 +25,13 @@
 
 ## Installation
 
+### Dependencies
+
+You will need <code>rust</code> and <code>cargo</code> to install statgen.
+
+## 
+# Install Statgen
+
 Download startgen.zip from [the latest release](https://github.com/noodlelover1/statgen/releases) and extract it, then run :
 ```bash
 cd /path/to/exctracted/statgen
